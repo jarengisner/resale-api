@@ -15,6 +15,8 @@ public interface Product {
     //need to create seller information to be able to get a seller info
     //public Seller getSeller();
 
+    public int getQuantity();
+
     public void setPrice(Double price);
 
     public void setDescription(String description);
@@ -22,4 +24,6 @@ public interface Product {
     public void setListDate(Date listDate);
 
     public void setId(String id);
+
+    public void setQuantity(int quantity);
 }
