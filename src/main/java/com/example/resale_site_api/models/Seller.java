@@ -5,9 +5,10 @@ import com.example.resale_site_api.interfaces.UserInterface;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Seller implements UserInterface {
-    private List<Product> products;
+    private List<SaleProduct> products;
 
     private String username;
 
@@ -51,10 +52,20 @@ public class Seller implements UserInterface {
         this.bio = bio;
     };
 
-    public void addProduct(Product product){
+    public void addProduct(SaleProduct product){
         this.products.add(product);
     };
 
     //need to figure out how to remove a product here
+    public void removeProduct(String id){
+        for(int i=0; i<this.products.size(); i++){
+            if(this.products.get(i).getId().equals(id)){
+                this.products.remove(i);
+            }
+        }
+    }
 
+    public int getNumberOfListings(){
+        return products.size();
+    };
 }

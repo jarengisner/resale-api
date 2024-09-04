@@ -74,4 +74,16 @@ public class SaleProduct implements Product {
         this.quantity=quantity;
     };
 
+
+    @Override
+    public int reduceQuantity(){
+        int currentQuantity = this.quantity;
+
+        currentQuantity--;
+
+        this.quantity=currentQuantity;
+
+        return this.quantity;
+    }
+
 }

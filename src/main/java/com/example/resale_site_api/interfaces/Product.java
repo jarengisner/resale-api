@@ -26,4 +26,6 @@ public interface Product {
     public void setId(String id);
 
     public void setQuantity(int quantity);
+
+    public int reduceQuantity();
 }
