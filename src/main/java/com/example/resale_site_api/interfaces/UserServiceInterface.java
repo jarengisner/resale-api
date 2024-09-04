@@ -5,7 +5,7 @@ public interface UserServiceInterface {
 
     UserInterface createUser(UserInterface user);
 
-    void deleteUser(String username);
+    void deleteUser(Long id);
 
     UserInterface updateUser(UserInterface user);
 }
