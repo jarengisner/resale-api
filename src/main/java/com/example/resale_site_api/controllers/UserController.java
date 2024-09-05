@@ -19,7 +19,7 @@ public class UserController {
         this.userService=userService;
     };
 
-    @GetMapping("/users/{username")
+    @GetMapping("/users/{username}")
     public ResponseEntity<UserInterface> getUserByName(@PathVariable String username){
         //get by username
         UserInterface currentuser = userService.getUserByUsername(username);
@@ -30,5 +30,17 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     };
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity<UserInterface> getUserById(@PathVariable Long id){
+      UserInterface current = userService.getUserById(id);
+
+      if(current != null){
+          return ResponseEntity.ok(current);
+      }else{
+          return ResponseEntity.notFound().build();
+      }
+    };
+
 
 }

@@ -20,6 +20,13 @@ public class UserServiceImpl implements UserServiceInterface {
         return userOptional.orElse(null);
     };
 
+    @Override
+    public UserInterface getUserById(Long id){
+        Optional<UserInterface> user = userRepository.findById(id);
+
+        return user.orElse(null);
+    };
+
     public UserInterface createUser(UserInterface user){
         return userRepository.save(user);
     };
