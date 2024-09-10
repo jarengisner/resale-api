@@ -5,9 +5,7 @@ import com.example.resale_site_api.services.UserServiceImpl;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Log
 @RestController
@@ -42,5 +40,9 @@ public class UserController {
       }
     };
 
+    @PostMapping("/users")
+    public ResponseEntity<UserInterface> createUser(@RequestBody UserInterface newUser){
+      UserInterface newUser
+    };
 
 }
