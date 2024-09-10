@@ -1,8 +1,8 @@
 package com.example.resale_site_api.services;
 
-import com.example.resale_site_api.interfaces.UserInterface;
-import com.example.resale_site_api.interfaces.UserServiceInterface;
-import com.example.resale_site_api.repositories.UserRepository;
+import com.example.resale_site_api.interfaces.SellerServiceInterface;
+import com.example.resale_site_api.models.Seller;
+import com.example.resale_site_api.repositories.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
@@ -15,31 +15,31 @@ public class SellerServiceImpl implements SellerServiceInterface {
     * */
 
     @Autowired
-    private UserRepository userRepository;
+    private SellerRepository sellerRepository;
 
     //implement interface methods here
     @Override
-    public UserInterface getUserByUsername(String username){
-        Optional<UserInterface> userOptional = userRepository.findByUsername(username);
+    public Seller getUserByUsername(String username){
+        Optional<Seller> userOptional = sellerRepository.findByUsername(username);
         return userOptional.orElse(null);
     };
 
     @Override
-    public UserInterface getUserById(Long id){
-        Optional<UserInterface> user = userRepository.findById(id);
+    public Seller getUserById(Long id){
+        Optional<Seller> user = sellerRepository.findById(id);
 
         return user.orElse(null);
     };
 
-    public UserInterface createUser(UserInterface user){
-        return userRepository.save(user);
+    public Seller createUser(Seller user){
+        return sellerRepository.save(user);
     };
 
     public void deleteUser(Long id){
-        userRepository.deleteById(id);
+        sellerRepository.deleteById(id);
     };
 
-    public UserInterface updateUser(UserInterface user){
-        return userRepository.save(user);
+    public Seller updateUser(Seller user){
+        return sellerRepository.save(user);
     };
 }

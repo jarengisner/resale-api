@@ -1,8 +1,10 @@
 package com.example.resale_site_api.services;
 
 import com.example.resale_site_api.interfaces.BuyerInterface;
+import com.example.resale_site_api.interfaces.BuyerServiceInterface;
 import com.example.resale_site_api.interfaces.UserInterface;
 
+import com.example.resale_site_api.models.Buyer;
 import com.example.resale_site_api.repositories.BuyerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +19,19 @@ public class BuyerServiceImpl implements BuyerServiceInterface {
 
     //implement interface methods here
     @Override
-    public UserInterface getUserByUsername(String username){
-        Optional<UserInterface> userOptional = buyerRepository.findByUsername(username);
+    public Buyer getUserByUsername(String username){
+        Optional<Buyer> userOptional = buyerRepository.findByUsername(username);
         return userOptional.orElse(null);
     };
 
     @Override
-    public UserInterface getUserById(Long id){
-        Optional<UserInterface> user = buyerRepository.findById(id);
+    public Buyer getUserById(Long id){
+        Optional<Buyer> user = buyerRepository.findById(id);
 
         return user.orElse(null);
     };
 
-    public UserInterface createUser(BuyerInterface user){
+    public Buyer createUser(Buyer user){
         return buyerRepository.save(user);
     };
 
@@ -37,7 +39,7 @@ public class BuyerServiceImpl implements BuyerServiceInterface {
         buyerRepository.deleteById(id);
     };
 
-    public UserInterface updateUser(BuyerInterface user){
+    public Buyer updateUser(Buyer user){
         return buyerRepository.save(user);
     };
 }
